@@ -310,6 +310,7 @@
 \usepackage{tikz}
 \usepackage{pdfpages}
 \usepackage{pgfplots}
+\usepackage{verbatim}
 % correct bad hyphenation here
 \hyphenation{op-tical net-works semi-conduc-tor}
 
@@ -831,6 +832,7 @@ With the aim of testing the CLONALG algorithm, the bot placed under several situ
 
 To make a bot under a real game scenario with optimized parameters will take hours, since, to evaluate each individual it took more seconds. The figure (4) showed the evaluation of the number of turns plays by the bot until win, and it appears that the number of turns needs to win in five maps decrease when the evaluation progress.Furthermore, in figure (5) two, the parameters evaluation is shown during the optimization process in amoung fifteen generations. \\
 
+\begin{comment}
 \begin{figure}
 \begin{center}
 \begin{tikzpicture}
@@ -861,78 +863,50 @@ To make a bot under a real game scenario with optimized parameters will take hou
 \end{center}
 \caption{the evaluation of the number of turns plays by the bot until win in 5 maps, and it appears that the number of turns needs to win in five maps decrease when the evaluation progress}
 \end{figure}
-
+\end{comment}
 
 \begin{figure}
 \begin{center}
-\begin{tikzpicture}[scale = 0.8]
+\begin{tikzpicture}
 \begin{axis}[
     title={Turns number evaluation},
-    xlabel={Generation},
+    xlabel={Maps},
     ylabel={Turns},
-    xmin=0, xmax=16,
-    ymin=0, ymax=1,
-    xtick={0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15},
-    ytick={0.15,0.3,0.45,0.6,0.75,0.9},
-    legend pos=outer north east,
+    xmin=0, xmax=105,
+    ymin=0, ymax=250,
+    xtick={0,5,10,20,50,100},
+    ytick={50,100,150,200,250},
+   % legend pos=outer north east,
     ymajorgrids=true,
     grid style=dashed,
 ]
  
 \addplot[
     color=blue,
+    mark=square,
     ]
-    coordinates{(1,0.651)(2,0.369)(3,0.713)(4,0.427)(5,0.721)(6,0.614)(7,0.34)(8,0.395)(9,0.82)(10,0.216)(11,0.577)(12,0.234)(13,0.7)(14,0.175)(15,0.845)};
+    coordinates{(5,200)(10,200)(20,200)(50,86)(100,145)};
     
     \addplot[
     color=red,
+    mark=square,
     ]
-    coordinates{(1,0.651)(2,0.344)(3,0.616)(4,0.79)(5,0.33)(6,0.508)(7,0.649)(8,0.097)(9,0.419)(10,0.85)(11,0.151)(12,0.635)(13,0.646)(14,0.601)(15,0.057)};
-    
-    \addplot[
-    color=green,
-    ]
-    coordinates{(1,0.665)(2,0.515)(3,0.483)(4,0.13)(5,0.528)(6,0.771)(7,0.755)(8,0.553)(9,0.672)(10,0.978)(11,0.161)(12,0.602)(13,0.186)(14,0.997)(15,0.447)};
-    
-    \addplot[
-    color=purple,
-    ]
-    coordinates{(1,0.122)(2,0.949)(3,0.603)(4,0.481)(5,0.619)(6,0.817)(7,0.871)(8,0.31)(9,0.552)(10,0.837)(11,0.703)(12,0.41)(13,0.102)(14,0.02)(15,0.323)};
-    
-    \addplot[
-    color=gray,
-    ]
-    coordinates{(1,0.785)(2,0.425)(3,0.318)(4,0.714)(5,0.975)(6,0.746)(7,0.245)(8,0.439)(9,0.426)(10,0.449)(11,0.912)(12,0.301)(13,0.703)(14,0.138)(15,0.124)};
-    
-    \addplot[
-    color=black,
-    ]
-    coordinates{(1,0.113)(2,0.029)(3,0.654)(4,0.132)(5,0.144)(6,0.364)(7,0.226)(8,0.379)(9,0.3)(10,0.393)(11,0.336)(12,0.149)(13,0.642)(14,0.054)(15,0.814)};
-    
-    \addplot[
-    color=orange,
-    ]
-    coordinates{(1,0.64)(2,0.259)(3,0.674)(4,0.127)(5,0.875)(6,0.258)(7,0.067)(8,0.589)(9,0.907)(10,0.166)(11,0.308)(12,0.789)(13,0.587)(14,0.272)(15,0.636)};
-    
-    \addplot[
-    color=brown,
-    ]
-    coordinates{(1,0.366)(2,0.685)(3,0.046)(4,0.602)(5,0.674)(6,0.212)(7,0.176)(8,0.949)(9,0.86)(10,0.807)(11,0.645)(12,0.361)(13,0.096)(14,0.712)(15,0.32)};
+    coordinates{(5,200)(10,171)(20,200)(50,65)(100,123)};
     
     
-    \legend{$Tith_{perc}$,$Tith_{prob}$,$W_{NS}$,
-    $W_{GR}$,$W_{DIS}$,$Pool_{perc}$,$Support_{perc}$,$Support_{prob}$}
+    \legend{Befor, After}
  
 \end{axis}
 \end{tikzpicture}
 \end{center}
-\caption{the evaluation of the Parameters during the optimization process}
+\caption{The evaluation of the turns number needed to win around multiple maps between initial bot and optimized bot}
 \end{figure}
 
 
 
 Table II describes the evaluated results improved by the optimization process where the colonies have a high probability to send Tith to the base (0.84) by sending a fewer hosted starships which can be explained that the colonies have to deserve there starships to defend it-selves in an emergency. On the other hand, the probability for a planet to perform an attack against other ones is around (0.32) and the proportion of sending troops is elevated (64\%) when there is an attack action. Based on this, when a planet performs an attack, the base also can send a high extra starships number for the attack around 81\%. Finally, when the bot trying to determine the target planet to perform the attack, the most important weights based on is the number of starships hosted on the target and the growth rate related to it, the distance has a less priority in this process. \\
 
+\begin{comment}
 \begin{table*}
 \centering
 \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
@@ -947,7 +921,61 @@ Table II describes the evaluated results improved by the optimization process wh
 \caption{Parameters used in the CLONALG algorithm}
 \label{TABLE 2}
 \end{table*}
+\end{comment}
 
+%0.505,0.778,0.1,0.933,0.562,0.12,0.075,0.829
+
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}[font=\small]
+\begin{axis}[
+    symbolic x coords={$T_{perc}$, $T_{prob}$, $W_{NS}$, $W_{GR}$, $W_{DIS}$, $P_{perc}$, $S_{perc}$, $S_{prob}$},
+        ylabel = {probability},
+        xlabel = {Parameters},
+    xtick=data]
+    \addplot[ybar,fill=blue] coordinates {
+        ($T_{perc}$,0.505)
+        ($T_{prob}$,0.778)
+        ($W_{NS}$,0.1)
+    ($W_{GR}$, 0.933)
+    ($W_{DIS}$,0.562)
+    ($P_{perc}$,0.12)
+    ($S_{perc}$,0.075)
+    ($S_{prob}$,0.829)
+    };
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\caption{The parameters values setting for the inital bot}
+\end{figure}
+
+%0.24,0.611,0.819,0.6,0.262,0.436,0.504,0.424
+
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}[font=\small]
+\begin{axis}[
+    symbolic x coords={$T_{perc}$, $T_{prob}$, $W_{NS}$, $W_{GR}$, $W_{DIS}$, $P_{perc}$, $S_{perc}$, $S_{prob}$},
+        ylabel = {probability},
+        xlabel = {Parameters},
+    xtick=data]
+    \addplot[ybar,fill=blue] coordinates {
+        ($T_{perc}$,0.24)
+        ($T_{prob}$,0.611)
+        ($W_{NS}$,0.819)
+    ($W_{GR}$, 0.6)
+    ($W_{DIS}$,0.262)
+    ($P_{perc}$,0.436)
+    ($S_{perc}$,0.504)
+    ($S_{prob}$,0.424)
+    };
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\caption{The parameters values setting for the optimized bot}
+\end{figure}
+
+\begin{comment}
 \begin{table*}
 \centering
 \begin{tabular}{|c|c|c|c|c|c|}
@@ -962,6 +990,7 @@ Table II describes the evaluated results improved by the optimization process wh
 \caption{results after 5 games of our AisBot with random parameters and after the optimization against the RandomBot}
 \label{TABLE 3}
 \end{table*}
+\end{comment}
 
 In general, the optimised AisBot is able to defeat the RandomBot in all situations with a minimum number of turns, this can demonstrate that the application of an Evolutionary Algorithm reach some hight capabilities in optimization behaviour even a parametrize behaviour as the one used on the AisBot. There are a lot of challenges can explore all the capabilities of AIS algorithms in the design of the bot's behaviour can offer.
 
